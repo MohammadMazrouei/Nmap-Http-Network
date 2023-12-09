@@ -15,19 +15,10 @@ def check_port_range(host: str, start_port: int, end_port: int) -> dict:
 def check_port(host: str, port: int) -> str:
     service = ""
     try:
-        # Create a socket object
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-        # Set the timeout to 5 seconds
         s.settimeout(5)
-
-        # Try to connect to the host
         s.connect((host, port))
-
-        # Get the service name
         service = socket.getservbyport(port)
-
-        # Close the socket
         s.close()
 
     except:
@@ -36,8 +27,7 @@ def check_port(host: str, port: int) -> str:
     return service 
 
 
-if __name__ == '__main__':
-
+def main():
     host = sys.argv[1]
 
     # check port 80 for host is online
@@ -63,4 +53,8 @@ if __name__ == '__main__':
 
         for port, service in open_ports.items():
             print(f'Port: {port}    Service: {service}')
+
+
+if __name__ == '__main__':
+    main()
 

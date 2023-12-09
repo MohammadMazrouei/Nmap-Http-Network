@@ -1,7 +1,9 @@
 import socket
 
+
 server = "localhost"
 port = 8080
+
 
 def send(request):
     try:
@@ -11,9 +13,12 @@ def send(request):
         client.sendall(request.encode())
         response = client.recv(1024).decode()
         client.close()
+
     except:
         response = "server is offline!!"
+
     return response
+
 
 def main():
     while (True):
@@ -23,7 +28,7 @@ def main():
         response = send(request)
         print(response)
 
+
 if __name__ == "__main__":
     main()
         
-    
