@@ -22,7 +22,7 @@ def handle_get_request(request):
     return response
 
 def handle_post_request(request):
-    command = request.split(' ')
+    command = request.strip().split()
     name = command[1]
     age = command[2]
     users[f'user{len(users)+1}'] = {'name': name, 'age': int(age)}
