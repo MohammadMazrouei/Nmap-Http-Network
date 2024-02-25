@@ -8,7 +8,7 @@ port = 8080
 def send(request):
     try:
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        client.settimeout(5)
+        client.settimeout(1)
         client.connect((server, port))
         client.sendall(request.encode())
         response = client.recv(1024).decode()

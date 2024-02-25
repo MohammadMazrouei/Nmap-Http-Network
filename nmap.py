@@ -16,7 +16,7 @@ def check_port(host: str, port: int) -> str:
     service = ""
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.settimeout(5)
+        s.settimeout(1)
         s.connect((host, port))
         service = socket.getservbyport(port)
         s.close()
